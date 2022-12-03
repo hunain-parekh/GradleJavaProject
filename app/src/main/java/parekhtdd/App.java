@@ -3,20 +3,8 @@
  */
 package parekhtdd;
 
-import java.util.ArrayList;
-
 public class App {
     public static void main(String[] args) {
-        Cart cart = new Cart();
-        Item item1 = new Item("Book",200,false);
-        Item item2 = new Item("Toy",500,false);
-        Item item3 = new Item("Shoes",100,true);
-        //Execute
-        cart.addItem(item1, 2);
-        cart.addItem(item2, 5);
-        cart.addItem(item3, 1);
-        cart.removeItem("Toy");
-        ArrayList<String> itemizedList = cart.getItems();
-        System.out.println(itemizedList);
+
     }
 }
