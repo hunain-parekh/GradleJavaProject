@@ -30,6 +30,20 @@ public class Cart {
         }
     }
 
+    public boolean removeItem(String name){
+        try{
+            for(QuantityItems quantityItem:quantityItems){
+                if(quantityItem.item.name == name){
+                    quantityItems.remove(quantityItem);
+                }
+            }
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+
     public int SumOfCart()
     {
         int sum = 0;

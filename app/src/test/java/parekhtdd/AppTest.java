@@ -83,4 +83,23 @@ public class AppTest {
          //Assert
          assertEquals(expected, itemizedList);
     }
+
+    //Given I have a cart with items, when I remove an item, then I expect the cart to display the updated itemized list.
+    @Test
+    public void UpdateItemizedListAfterRemovingItem(){
+        //Setup
+        Cart cart = new Cart();
+        Item item1 = new Item("Book",200,false);
+        Item item2 = new Item("Toy",500,false);
+        Item item3 = new Item("Shoes",100,true);
+        //Execute
+        cart.addItem(item1, 2);
+        cart.addItem(item2, 5);
+        cart.addItem(item3, 1);
+        cart.removeItem("Toy");
+        ArrayList<String> itemizedList = cart.getItems();
+        ArrayList<String> expected = new ArrayList<>( Arrays.asList("Item name: Book Quantity: 2 Price: 200","Item name: Shoes Quantity: 1 Price: 100 highlited"));
+        //Assert
+        assertEquals(expected, itemizedList);
+    }
 }
