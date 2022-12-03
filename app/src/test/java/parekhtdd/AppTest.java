@@ -102,4 +102,23 @@ public class AppTest {
         //Assert
         assertEquals(expected, itemizedList);
     }
+
+    //Given I have one item in my cart with a quantity of 3, when I remove one, then I expect the cart to have 2 of that item.
+    @Test
+    public void removeQuantityAfterRemovingItem(){
+        //Setup
+        Cart cart = new Cart();
+        Item item1 = new Item("Book",200,false);
+        Item item2 = new Item("Toy",500,false);
+        Item item3 = new Item("Shoes",100,true);
+        //Execute
+        cart.addItem(item1, 2);
+        cart.addItem(item2, 5);
+        cart.addItem(item3, 1);
+        cart.removeItem("Toy");
+        ArrayList<String> itemizedList = cart.getItems();
+        ArrayList<String> expected = new ArrayList<>( Arrays.asList("Item name: Book Quantity: 2 Price: 200","Item name: Toy Quantity: 4 Price: 500","Item name: Shoes Quantity: 1 Price: 100 highlited"));
+        //Assert
+        assertEquals(expected, itemizedList);
+    }
 }

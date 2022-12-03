@@ -34,7 +34,12 @@ public class Cart {
         try{
             for(QuantityItems quantityItem:quantityItems){
                 if(quantityItem.item.name == name){
-                    quantityItems.remove(quantityItem);
+                    if(quantityItem.quantity > 1){
+                        quantityItem.quantity -= 1;
+                    }
+                    else{
+                        quantityItems.remove(quantityItem);
+                    }
                 }
             }
             return true;
