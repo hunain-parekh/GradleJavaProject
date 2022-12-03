@@ -8,12 +8,6 @@ public class App {
     }
 
     public static void main(String[] args) {
-         //Setup
-         Cart cart = new Cart();
-         Item item = new Item("Book",300,false);
-         //Execute
-         cart.addItem(item, 2);
-         int sum = cart.SumOfCart();
-         System.out.println(sum);
+        
     }
 }
