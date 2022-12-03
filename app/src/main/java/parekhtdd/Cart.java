@@ -32,4 +32,13 @@ public class Cart {
         }
         return sum;
     }
+
+    public int QuantityOfCart(){
+        int quantity = 0;
+        for(QuantityItems quantityItem:quantityItems){
+            int itemQuanity = quantityItem.quantity;
+            quantity += itemQuanity;
+        }
+        return quantity;
+    }
 }

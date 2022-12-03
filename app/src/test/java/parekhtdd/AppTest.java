@@ -35,4 +35,19 @@ public class AppTest {
         //Assert
         assertEquals(400,sum);
     }
+
+    // Given I have cart with one item, when I add more of that item, then I expect to see its quantity update on the cart.
+    @Test
+    public void UpdateQuantityAfterAddingItem(){
+        //Setup
+        Cart cart = new Cart();
+        Item item1 = new Item("Book",200,false);
+        Item item2 = new Item("Shoes",100,false);
+        //Execute
+        cart.addItem(item1, 2);
+        cart.addItem(item2, 5);
+        int quantity = cart.QuantityOfCart();
+        //Assert
+        assertEquals(7, quantity);
+    }
 }
