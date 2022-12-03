@@ -6,6 +6,7 @@ package parekhtdd;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 public class AppTest {
     @Test public void appHasAGreeting() {
         App classUnderTest = new App();
@@ -19,6 +20,19 @@ public class AppTest {
         //Execute
         int size = cart.getItems().size();
         //Assert
-        assertEquals(size,0);
+        assertEquals(0,size);
+    }
+
+    // Given I have an empty cart, when I add an Item, then I expect to the price reflect the sum of all the Items in my cart.
+    @Test
+    public void ChangeSumAfterAddingItem(){
+        //Setup
+        Cart cart = new Cart();
+        Item item = new Item("Book",200,false);
+        //Execute
+        cart.addItem(item, 2);
+        int sum = cart.SumOfCart();
+        //Assert
+        assertEquals(400,sum);
     }
 }

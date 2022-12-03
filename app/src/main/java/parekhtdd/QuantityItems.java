@@ -7,4 +7,5 @@ public class QuantityItems {
         this.item = item;
         this.quantity = quantity;
     }
+    
 }
