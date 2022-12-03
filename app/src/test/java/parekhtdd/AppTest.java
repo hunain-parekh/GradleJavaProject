@@ -11,4 +11,14 @@ public class AppTest {
         App classUnderTest = new App();
         assertNotNull("app should have a greeting", classUnderTest.getGreeting());
     }
+    //Given that I a new shopper, when I begin shopping, then I expect my cart to be empty.
+    @Test
+     public void EmptyCartOnFirstTime(){
+        //Setup
+        Cart cart = new Cart();
+        //Execute
+        int size = cart.getItems().size();
+        //Assert
+        assertEquals(size,0);
+    }
 }
