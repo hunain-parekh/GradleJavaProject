@@ -6,6 +6,9 @@ package parekhtdd;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 public class AppTest {
     //Given that I a new shopper, when I begin shopping, then I expect my cart to be empty.
@@ -45,5 +48,21 @@ public class AppTest {
         int quantity = cart.QuantityOfCart();
         //Assert
         assertEquals(7, quantity);
+    }
+    
+    //Given I have an empty cart, when I add items, then I expect it to see an itemized list of the items along with their price and quantity.
+    @Test
+    public void GetListOfItemsAfterAdding(){
+        //Setup
+        Cart cart = new Cart();
+        Item item1 = new Item("Book",200,false);
+        Item item2 = new Item("Shoes",100,false);
+        //Execute
+        cart.addItem(item1, 2);
+        cart.addItem(item2, 5);
+        ArrayList<String> itemizedList = cart.getItems();
+        ArrayList<String> expected = new ArrayList<>( Arrays.asList("Item name: Book Quantity: 2 Price: 200","Item name: Shoes Quantity: 5 Price: 100"));
+        //Assert
+        assertEquals(expected, itemizedList);
     }
 }

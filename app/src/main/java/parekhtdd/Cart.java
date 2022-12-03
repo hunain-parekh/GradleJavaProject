@@ -5,9 +5,13 @@ public class Cart {
     public Cart(){};
 
     public ArrayList<QuantityItems> quantityItems = new ArrayList<>();
+    public ArrayList<String> ItemizedList = new ArrayList<>();
 
-    public ArrayList<QuantityItems> getItems(){
-        return quantityItems;
+    public ArrayList<String> getItems(){
+        for(QuantityItems quantityItem:quantityItems){
+            ItemizedList.add("Item name: "+quantityItem.item.name+" Quantity: "+quantityItem.quantity+" Price: "+quantityItem.item.price);
+        }
+        return ItemizedList;
     }
 
     public boolean addItem(Item item,int quantity){
