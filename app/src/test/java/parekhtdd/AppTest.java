@@ -65,4 +65,22 @@ public class AppTest {
         //Assert
         assertEquals(expected, itemizedList);
     }
+
+    //Given I have a cart with items that are not on sale, when I add an item that's on sale, I expect to see it highlighted.
+    @Test
+    public void highlightedSalesItem(){
+         //Setup
+         Cart cart = new Cart();
+         Item item1 = new Item("Book",200,false);
+         Item item2 = new Item("Toy",500,false);
+         Item item3 = new Item("Shoes",100,true);
+         //Execute
+         cart.addItem(item1, 2);
+         cart.addItem(item2, 5);
+         cart.addItem(item3, 1);
+         ArrayList<String> itemizedList = cart.getItems();
+         ArrayList<String> expected = new ArrayList<>( Arrays.asList("Item name: Book Quantity: 2 Price: 200","Item name: Toy Quantity: 5 Price: 500","Item name: Shoes Quantity: 1 Price: 100 highlited"));
+         //Assert
+         assertEquals(expected, itemizedList);
+    }
 }

@@ -9,7 +9,12 @@ public class Cart {
 
     public ArrayList<String> getItems(){
         for(QuantityItems quantityItem:quantityItems){
-            ItemizedList.add("Item name: "+quantityItem.item.name+" Quantity: "+quantityItem.quantity+" Price: "+quantityItem.item.price);
+            if(quantityItem.item.onSale == true){
+                ItemizedList.add("Item name: "+quantityItem.item.name+" Quantity: "+quantityItem.quantity+" Price: "+quantityItem.item.price+" highlited");
+            }
+            else{
+                ItemizedList.add("Item name: "+quantityItem.item.name+" Quantity: "+quantityItem.quantity+" Price: "+quantityItem.item.price);
+            }
         }
         return ItemizedList;
     }
